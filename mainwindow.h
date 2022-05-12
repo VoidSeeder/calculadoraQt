@@ -45,6 +45,8 @@ private slots:
 
     void on_btnEquals_clicked();
 
+    void on_btnMinus_clicked();
+
 private:
     Ui::MainWindow *ui;
     char operationSymbol = ' ';

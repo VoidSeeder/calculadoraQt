@@ -79,6 +79,12 @@ void MainWindow::on_btnPlus_clicked()
     operationSymbol = '+';
 }
 
+void MainWindow::on_btnMinus_clicked()
+{
+    setOperationClicked();
+    operationSymbol = '-';
+}
+
 void MainWindow::on_btnClear_clicked()
 {
     memNumber = 0;
@@ -107,10 +113,13 @@ void MainWindow::cleanOperationClicked() {
 void MainWindow::doOperation() {
     const int currentNumber = ui->display->text().toInt();
     switch(operationSymbol) {
-        case '+':
-            memNumber = memNumber + currentNumber;
+    case '+':
+        memNumber = memNumber + currentNumber;
         break;
-        default:
+    case '-':
+        memNumber = memNumber - currentNumber;
+        break;
+    default:
         break;
     }
     operationSymbol = ' ';
