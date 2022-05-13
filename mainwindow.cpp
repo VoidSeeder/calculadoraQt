@@ -119,6 +119,12 @@ void MainWindow::doOperation() {
     case '-':
         memNumber = memNumber - currentNumber;
         break;
+    case '*':
+        memNumber = memNumber * currentNumber;
+        break;
+    case '/':
+        memNumber = memNumber / currentNumber;
+        break;
     default:
         break;
     }
@@ -130,5 +136,19 @@ void MainWindow::on_btnEquals_clicked()
 {
     doOperation();
     setOperationClicked();
+}
+
+
+void MainWindow::on_btnTimes_clicked()
+{
+    setOperationClicked();
+    operationSymbol = '*';
+}
+
+
+void MainWindow::on_btnDivide_clicked()
+{
+    setOperationClicked();
+    operationSymbol = '/';
 }
 

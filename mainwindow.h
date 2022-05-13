@@ -47,6 +47,10 @@ private slots:
 
     void on_btnMinus_clicked();
 
+    void on_btnTimes_clicked();
+
+    void on_btnDivide_clicked();
+
 private:
     Ui::MainWindow *ui;
     char operationSymbol = ' ';
