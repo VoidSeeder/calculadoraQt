@@ -87,7 +87,7 @@ void MainWindow::on_btnMinus_clicked()
 
 void MainWindow::on_btnClear_clicked()
 {
-    memNumber = 0;
+    memNumber = 0.0;
     operationSymbol = ' ';
     operationClicked = false;
     ui->display->setText("");
@@ -104,14 +104,14 @@ void MainWindow::setOperationClicked() {
 
 void MainWindow::cleanOperationClicked() {
     if(operationClicked == true) {
-        memNumber = ui->display->text().toInt();
+        memNumber = ui->display->text().replace(',', '.').toDouble();
         ui->display->setText("");
         operationClicked = false;
     }
 }
 
 void MainWindow::doOperation() {
-    const int currentNumber = ui->display->text().toInt();
+    double currentNumber = ui->display->displayText().replace(',', '.').toDouble();
     switch(operationSymbol) {
     case '+':
         memNumber = memNumber + currentNumber;
@@ -126,6 +126,7 @@ void MainWindow::doOperation() {
         memNumber = memNumber / currentNumber;
         break;
     default:
+        memNumber = currentNumber;
         break;
     }
     operationSymbol = ' ';
@@ -150,5 +151,11 @@ void MainWindow::on_btnDivide_clicked()
 {
     setOperationClicked();
     operationSymbol = '/';
+}
+
+
+void MainWindow::on_btnDot_clicked()
+{
+    ui->display->insert(",");
 }
 

@@ -51,10 +51,12 @@ private slots:
 
     void on_btnDivide_clicked();
 
+    void on_btnDot_clicked();
+
 private:
     Ui::MainWindow *ui;
     char operationSymbol = ' ';
-    int memNumber = 0;
+    double memNumber = 0.0;
     bool operationClicked = false;
 };
 #endif // MAINWINDOW_H
